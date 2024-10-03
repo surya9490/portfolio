@@ -49,7 +49,7 @@ export const TestimonialsSection = () => {
         <SectionHeader
           eyebrow="Happy Clients"
           title="What Client Say about Me"
-          description=" Don't just take my word for it. See what my clients have to say about my work."
+          description=" Don&apos;t just take my word for it. See what my clients have to say about my work."
         />
         <div className="mt-16 lg:mt-24 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
           <div className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
