@@ -13,6 +13,7 @@ import ChromeIcon from "../assets/icons/chrome.svg";
 import mapImage from "../assets/images/map.png";
 import smileEmoj from "../assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
+import ShopifyIcon from "../assets/icons/shopify.svg";
 import { ToolBoxItems } from "@/components/Toolboxitems";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -42,6 +43,10 @@ const toolBoxItems = [
     title: "Github",
     iconType: GithubIcon,
   },
+  {
+    title: "Shopify",
+    iconType: ShopifyIcon,
+  }
 ];
 
 const hobbies = [
