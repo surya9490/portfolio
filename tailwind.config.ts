@@ -22,7 +22,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: "var(--font-sans)",
+        sans: "var(--font-sans)",  // Ensure CSS custom variables are defined in your styles
         serif: "var(--font-serif)",
       },
       animation: {
@@ -50,7 +50,7 @@ const config: Config = {
             transform: "translateX(-50%)",
           },
           "100%": {
-            transform: "translateX(-0%)",
+            transform: "translateX(0%)",
           },
         },
       },
@@ -58,4 +58,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
