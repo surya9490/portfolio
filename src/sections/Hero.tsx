@@ -126,7 +126,7 @@ export const HeroSection = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
           <button className="inline-flex relative z-2 items-center text-inherit gap-2 border border-white/15 text-gray-900 h-12 px-6 rounded-xl">
-            <Link className="font-semibold" href='/projects'>Explore My Work</Link>
+            <span className="font-semibold" >Explore My Work</span>
             <ArrowDown className="size-4" />
           </button>
           <button className="linline-flex relative z-2 items-center  gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">

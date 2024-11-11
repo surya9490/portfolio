@@ -4,6 +4,7 @@ import { Inter, Calistoga } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Header } from "@/sections/Header";
 import grainImage from "../assets/images/noise.51a05f55.png";
+import { Footer } from "@/sections/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -29,6 +30,7 @@ export default function RootLayout({
         <div className="">
         <Header />
         {children}
+        <Footer />
         </div>
       </body>
     </html>

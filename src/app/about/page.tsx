@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6 my-20">
+    <section className="container md:px-16 px-6 my-20">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
         <div>
           <h1 className="font-sans font-extrabold text-4xl mb-8">

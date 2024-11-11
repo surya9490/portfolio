@@ -20,6 +20,6 @@ export function sendEmail(data: FormData) {
     })
     .catch((err) => {
       console.error("Error in sendEmail:", err);
-      throw err;  // Propagate the error to the caller
+      throw err;
     });
 }
