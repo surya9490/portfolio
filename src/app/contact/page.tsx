@@ -27,7 +27,7 @@ const Contact: FC = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container mb-10">
       <h1 className="text-3xl font-bold mb-5 text-center my-20">Contact Me</h1>
       <div className="secondary-color rounded-md">
         <div className="sm:px-5 md:max-w-xl mx-auto  py-10">
@@ -75,7 +75,7 @@ const Contact: FC = () => {
               ></textarea>
             </div>
             <div className="text-right">
-              <button className="hover:shadow-form  rounded-md bg-black/20 hover:border-purple-500 py-3 px-8 text-base font-semibold text-white outline-none">
+              <button className="hover:shadow-form  rounded-md bg-black/20 border border-transparent hover:border-white/50 py-3 px-8 text-base font-semibold text-white outline-none">
                 {isSending ? "Sending..." : "Send"}
               </button>
             </div>
