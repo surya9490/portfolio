@@ -14,9 +14,42 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "surya kiran",
-  description: "surya kiran palipireddy , fontend developer",
+  title: "Surya Kiran Palipireddy",
+  description: "Surya Kiran portfolio",
+  keywords: [
+    "Surya Kiran Palipireddy",
+    "web developer",
+    "portfolio",
+    "surya kiran portfolio",
+    "frontend developer",
+    "React",
+    "Shopify developer",
+    "JavaScript",
+    "Next.js",
+    "professional portfolio",
+  ],
+  openGraph: {
+    title: "Surya Kiran Palipireddy | Web Developer Portfolio",
+    description: "Explore projects and skills in React and Shopify development.",
+    type: "website",
+    url: "https://www.dev-surya.online",
+    images: [
+      {
+        url: "/thumbnail.jpg",
+        alt: "Surya Kiran Palipireddy Portfolio Preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surya Kiran Palipireddy | Web Developer Portfolio",
+    description: "Discover projects and expertise in React and Shopify.",
+    images: "/thumbnail.jpg",
+  }
 };
+
+
+
 
 export default function RootLayout({
   children,
