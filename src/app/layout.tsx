@@ -16,18 +16,19 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Surya Kiran Palipireddy",
-  description: "Surya Kiran portfolio",
+  title: "Surya Kiran Palipireddy | Web Developer Portfolio",
+  description: "Surya Kiran Palipireddy's professional portfolio in web development, React, and Shopify.",
   keywords: [
+    "Surya Kiran",
     "Surya Kiran Palipireddy",
+    "Surya portfolio",
+    "Surya Kiran portfolio",
     "web developer",
-    "portfolio",
-    "surya kiran portfolio",
     "frontend developer",
-    "React devloper",
+    "React developer",
     "Shopify developer",
-    "JavaScript devloper",
     "Next.js developer",
+    "JavaScript developer",
     "professional portfolio",
   ],
   openGraph: {
@@ -47,8 +48,9 @@ export const metadata: Metadata = {
     title: "Surya Kiran Palipireddy | Web Developer Portfolio",
     description: "Discover projects and expertise in React and Shopify.",
     images: "/thumbnail.jpg",
-  }
+  },
 };
+
 
 
 
