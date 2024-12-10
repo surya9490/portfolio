@@ -1,7 +1,6 @@
-"use client";
-
+import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Logo from '../../public/logo.png';
 
 
 const links: { title: string; href: string }[] = [
@@ -20,28 +19,30 @@ const links: { title: string; href: string }[] = [
  
 ];
 
-export const Header = () => {
-  const pathname = usePathname();
-
-  const getClassNames = (path: string) => {
-    const selected =
-      "bg-white text-gray-900 hover:bg-white/70 hover:text-gay-900";
-    return pathname === path ? selected : "";
-  };
-
+export default function Header() {
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full z-[99]">
-      <nav className="flex gap-3 p-[4px] border border-white/15 rounded-full bg-white/10 backdrop-blur">
-        {links.map((link) => (
-          <Link
-            key={link.title}
-            href={link.href}
-            className={`nav-item ${getClassNames(link.href)}`}
-          >
-            {link.title}
-          </Link>
-        ))}
-      </nav>
-    </div>
+    <header className="py-6 md:px-16 px-6 sticky top-0 border-b bg-zinc-900 border-zinc-800 z-30 ">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <Link href="/">
+          <Image src={Logo} width={25} height={25} alt="logo" />
+        </Link>
+        <nav>
+          <ul className="flex items-center gap-x-8">
+            {
+              links.map((link) => (
+                <li key={link.title}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-purple-400 duration-300"
+                  >
+                    {link.title}
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+    </header>
   );
-};
+}

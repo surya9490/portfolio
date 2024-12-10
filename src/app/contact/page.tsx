@@ -28,7 +28,7 @@ const Contact: FC = () => {
 
   return (
     <div className="container mb-10">
-      <h1 className="text-3xl font-bold mb-5 text-center my-20">Contact Me</h1>
+      <h1 className="text-3xl font-bold  text-center my-10">Contact Me</h1>
       <div className="secondary-color rounded-md">
         <div className="sm:px-5 md:max-w-xl mx-auto  py-10">
           <form onSubmit={handleSubmit(onSubmit)}>
