@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 
 const md = new MarkdownIt();
 
+
 // Generate static params for dynamic routes
 export async function generateStaticParams() {
   const posts = getAllPosts();
@@ -21,7 +22,10 @@ async function fetchPost(slug: string) {
 
 // Dynamic route component
 export default async function Post({ params }: { params: { slug: string } }) {
-  const post = await fetchPost(params.slug);
+  // Await params to ensure we can access its properties
+  const { slug } = await params;
+
+  const post = await fetchPost(slug);
 
   if (!post) {
     notFound(); // Redirect to a 404 page
@@ -31,8 +35,12 @@ export default async function Post({ params }: { params: { slug: string } }) {
   const htmlContent = md.render(post.content);
 
   return (
-    <article>
-      <h1>{post.title}</h1>
+    <article className="prose container">
+      {post.title && (
+        <h1 className="font-bold lg:text-5xl text-3xl lg:leading-tight mb-4">
+          {post.title}
+        </h1>
+      )}
       <p className="post-meta">{post.date}</p>
       <div
         className="post-content"
@@ -40,4 +48,5 @@ export default async function Post({ params }: { params: { slug: string } }) {
       />
     </article>
   );
+  
 }
