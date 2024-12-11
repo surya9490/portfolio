@@ -1,4 +1,3 @@
-// page.tsx
 import { getCompiledMDX, getPostFilePaths } from "@/utils/mdxUtils";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -24,7 +23,7 @@ export const generateMetadata = async ({
   params,
 }: PageProps): Promise<Metadata> => {
   try {
-    const { slug } = await params;
+    const { slug } = await params; // Await params here
     const { frontmatter } = await getCompiledMDX(slug);
 
     return {
@@ -44,20 +43,20 @@ export const generateMetadata = async ({
 };
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const BlogPostPage = async ({ params }: PageProps) => {
-  const { slug } = await params;
+  const { slug } = await params; // Await params here
   const { content, frontmatter } = await getPostData(slug);
   const { title, date, image } = frontmatter;
 
   return (
     <div className="prose container">
       <h1>{title}</h1>
-      { date && <p>{new Date(date).toDateString()}</p>}
+      {date && <p>{new Date(date).toDateString()}</p>}
       {image && image.url && (
         <Image
           src={image.url}
