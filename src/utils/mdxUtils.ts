@@ -3,6 +3,7 @@ import fsp from "fs/promises";
 import { compileMDX } from "next-mdx-remote/rsc";
 import path from "path";
 import { cache } from "react";
+import IconList from "../components/icon-list";
 
 
 const POSTS_PATH = path.join(process.cwd(), "src/markdown");
@@ -25,7 +26,9 @@ export const getCompiledMDX = cache(async (postSlug: string) => {
   return compileMDX<PostsFrontmatter>({
     source,
     options: { parseFrontmatter: true },
-    components: {  },
+    components: { 
+      IconList 
+    },
   });
 });
 

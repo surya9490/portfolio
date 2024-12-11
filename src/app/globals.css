@@ -15,10 +15,7 @@
     @apply bg-[#27272B66];
   }
 
-  .prose *,
-  .prose strong,
-  .prose a,
-  .prose p,
+  
   .prose h1,
   .prose h2,
   .prose h3,
@@ -26,6 +23,13 @@
   .prose h5,
   .prose h6 {
     @apply text-white;
+  }
+
+  .prose *,
+  .prose strong,
+  .prose a,
+  .prose p {
+    @apply text-zinc-400;
   }
 
   .prose h1 {
