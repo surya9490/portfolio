@@ -21,7 +21,7 @@ const links: { title: string; href: string }[] = [
 export default function Header() {
   return (
     <>
-      <header className=" sticky top-0 ">
+      <header className=" sticky top-0 z-[99]">
         <div className="border-b bg-zinc-900 border-zinc-800 z-30 py-6 md:px-16 px-6">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Link href="/">
@@ -43,6 +43,7 @@ export default function Header() {
           </nav>
         </div>
         </div>
+        <ScrollProgressBar />
       </header>
       
     </>

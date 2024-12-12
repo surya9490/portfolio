@@ -10,7 +10,7 @@ export const Footer = () => {
       ></div>
       <div className="container">
         <div className="border-t border-white/15 py-6 text-sm flex felx-row justify-between items-c gap-8">
-          <div className="text-white/40">&Copy: 2024. All rights reserved</div>
+          <div className="text-white/40">© 2024, All rights reserved.</div>
           <nav className=" flex flex-row items-center justify-between gap-8">
             <a href="https://www.linkedin.com/in/surya-kiran-palipireddy-0bb873217" target="_blank" className="inline-flex items-center gap-1.5">
               <span className="font-semibold">Linkedin</span>

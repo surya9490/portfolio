@@ -15,6 +15,10 @@
     @apply bg-[#27272B66];
   }
 
+  body {
+    @apply scroll-smooth
+  }
+
   
   .prose h1,
   .prose h2,
