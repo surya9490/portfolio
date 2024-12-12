@@ -8,7 +8,6 @@ import { Footer } from "@/sections/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/sections/Header";
-import MobileNavigation from "@/components/MobileNavigarion";
 
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
