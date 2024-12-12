@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/sections/Header";
 
+
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -76,7 +77,6 @@ export default function RootLayout({
         <div className="">
           <Header />
           <main className="mt:mb-28 mt-20">{children}</main>
-
           <Analytics />
           <SpeedInsights />
           <Footer />
