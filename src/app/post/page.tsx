@@ -5,6 +5,9 @@ import Link from "next/link";
 const BlogIndexPage = async () => {
   const posts = await getLatestPostSummaries();
 
+  if(posts.length === 0) return <p>No posts found.</p>;
+
+console.log("posts", posts);
   return (
     <div>
       <h1>Blog Posts</h1>

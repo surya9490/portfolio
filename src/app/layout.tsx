@@ -66,7 +66,7 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-zinc-900 text-white antialiased font-sans"
+          "bg-zinc-900 text-white antialiased font-sans h-full"
         )}
         style={{
           backgroundImage: `url(${grainImage.src})`,
@@ -74,13 +74,13 @@ export default function RootLayout({
           backgroundPosition: "0 0",
         }}
       >
-        <div className="">
+        <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="mt:mb-28 mt-20">{children}</main>
+          <main className="flex-1">{children}</main>
           <Analytics />
           <SpeedInsights />
           <Footer />
-        </div>
+          </div>
       </body>
     </html>
   );

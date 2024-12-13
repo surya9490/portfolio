@@ -17,6 +17,7 @@ export type PostsFrontmatter = {
   title: string;
   description: string;
   date: string;
+  tags:string;
   image: { url: string; width: number; height: number };
 };
 
@@ -42,8 +43,12 @@ export const getLatestPostSummaries = cache(async () => {
   );
   posts.sort((a, b) => (a.frontmatter.date < b.frontmatter.date ? 1 : -1));
 
-  return posts.map((post) => ({ slug: post.slug, ...post.frontmatter }));
+  // Exclude posts with the "project" tag
+  return posts
+    .map((post) => ({ slug: post.slug, ...post.frontmatter }))
+    .filter((post) => !post.tags?.includes("project"));
 });
+
 
 export const getPostsSitemap = cache(async () => {
   const filePaths = await getPostFilePaths();

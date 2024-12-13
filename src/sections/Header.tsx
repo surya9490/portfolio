@@ -78,7 +78,7 @@ export default function Header() {
           </button>
         </div>
         <ScrollProgressBar />
-      </header>
+      
 
       {/* Mobile Drawer */}
       <div
@@ -109,6 +109,7 @@ export default function Header() {
           ))}
         </ul>
       </div>
+    </header>
     </>
   );
 }
