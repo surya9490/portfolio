@@ -1,11 +1,11 @@
 "use client";
 
-
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../public/logo.png";
 import ScrollProgressBar from "@/components/scrollProgressBar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links: { title: string; href: string }[] = [
   {
@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <>
       {/* Header for Desktop and Mobile */}
-      <header className="sticky top-0 z-[99] bg-zinc-900 border-b border-zinc-800">
+      <header className="sticky top-0 z-[99] dark:bg-primary-dark bg-primary-light  border-b border-zinc-800">
         <div className="py-6 md:px-16 px-6 max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
@@ -46,7 +46,7 @@ export default function Header() {
                 <li key={link.title}>
                   <Link
                     href={link.href}
-                    className="hover:text-purple-400 duration-300 text-white"
+                    className="hover:text-purple-400 duration-300 dark:text-white text-zinc-600"
                   >
                     {link.title}
                   </Link>
@@ -56,60 +56,63 @@ export default function Header() {
           </nav>
 
           {/* Mobile Hamburger Icon */}
-          <button
-            className="flex flex-col items-center space-y-1 w-8 h-8 md:hidden focus:outline-none"
-            onClick={toggleDrawer}
-          >
-            <div
-              className={`h-1 w-full bg-white rounded transform transition-transform duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            ></div>
-            <div
-              className={`h-1 w-full bg-white rounded transition-opacity duration-300 ${
-                isOpen ? "opacity-0" : "opacity-100"
-              }`}
-            ></div>
-            <div
-              className={`h-1 w-full bg-white rounded transform transition-transform duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            ></div>
-          </button>
+          <div className="flex gap-8 justify-center items-center">
+          <ThemeToggle />
+            <button
+              className="flex flex-col items-center h-full space-y-1 w-8 h-8 md:hidden focus:outline-none"
+              onClick={toggleDrawer}
+            >
+              <div
+                className={`h-1 w-full dark:bg-white bg-zinc-400 rounded transform transition-transform duration-300 ${
+                  isOpen ? "rotate-45 translate-y-2" : ""
+                }`}
+              ></div>
+              <div
+                className={`h-1 w-full dark:bg-white bg-zinc-400 rounded transition-opacity duration-300 ${
+                  isOpen ? "opacity-0" : "opacity-100"
+                }`}
+              ></div>
+              <div
+                className={`h-1 w-full  dark:bg-white bg-zinc-400 rounded transform transition-transform duration-300 ${
+                  isOpen ? "-rotate-45 -translate-y-2" : ""
+                }`}
+              ></div>
+            </button>
+           
+          </div>
         </div>
         <ScrollProgressBar />
-      
 
-      {/* Mobile Drawer */}
-      <div
-        className={`fixed top-0 left-0 h-full z-[100] w-64 bg-zinc-900 shadow-lg transform transition-transform duration-300 md:hidden ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
-      >
-        {/* Close Button */}
-        <button
-          className="absolute top-4 right-4 text-gray-300 hover:text-white focus:outline-none"
-          onClick={toggleDrawer}
+        {/* Mobile Drawer */}
+        <div
+          className={`fixed top-0 left-0 h-full z-[100] w-64 dark:bg-zinc-900 bg-white shadow-lg transform transition-transform duration-300 md:hidden ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
-          ✕
-        </button>
+          {/* Close Button */}
+          <button
+            className="absolute top-4 right-4 text-zinc-400 hover:text-white focus:outline-none"
+            onClick={toggleDrawer}
+          >
+            ✕
+          </button>
 
-        {/* Mobile Navigation */}
-        <ul className="mt-16 space-y-6 px-6">
-          {links.map((link) => (
-            <li key={link.title}>
-              <Link
-                href={link.href}
-                onClick={toggleDrawer}
-                className="block text-lg text-gray-300 hover:text-white"
-              >
-                {link.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </header>
+          {/* Mobile Navigation */}
+          <ul className="mt-16 space-y-6 px-6">
+            {links.map((link) => (
+              <li key={link.title}>
+                <Link
+                  href={link.href}
+                  onClick={toggleDrawer}
+                  className="block text-lg  text-zinc-900 dark:text-white hover:text-white"
+                >
+                  {link.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </header>
     </>
   );
 }
