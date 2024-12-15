@@ -19,6 +19,10 @@
     @apply scroll-smooth
   }
 
+  .section-spacing {
+    @apply mt-20 md:mt-24
+  }
+
   
   .prose h1,
   .prose h2,

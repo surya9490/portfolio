@@ -54,7 +54,7 @@ const BlogPostPage = async ({ params }: PageProps) => {
   const { title, date, image } = frontmatter;
 
   return (
-    <div className="prose container">
+    <div className="prose container section-spacing">
       <h1>{title}</h1>
       {date && <p>{new Date(date).toDateString()}</p>}
       {image && image.url && (

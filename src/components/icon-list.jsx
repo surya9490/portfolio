@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function IconList({ list }) {
   return (
-    <section className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 mb-12">
+    <section className="grid xl:grid-cols-3 md:grid-cols-2  lg:grid-cols-3 grid-cols-1 gap-5 mb-12">
       {list &&list.map((project) => (
         <Link
           href={project.url}
