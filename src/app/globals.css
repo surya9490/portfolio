@@ -16,11 +16,11 @@
   }
 
   body {
-    @apply scroll-smooth
+    @apply scroll-smooth bg-white dark:bg-zinc-900;
   }
 
   .section-spacing {
-    @apply mt-20 md:mt-24
+    @apply mt-20 md:mt-24;
   }
 
   
