@@ -9,8 +9,8 @@
 
   .hero-ring {
     @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full;
-    border-color: rgb(243, 242, 241);
-    --tw-shadow-colored: inset 0 0 80px rgb(243, 242, 241);
+    border-color: #fff;
+    --tw-shadow-colored: inset 0 0 80px rgb(255, 255, 255);
     box-shadow: var(--tw-shadow-colored);
     @apply dark:border-slate-300/5 dark:shadow-[0_0_80px_inset] dark:shadow-slate-300/5;
   }
