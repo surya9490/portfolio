@@ -8,40 +8,80 @@
   }
 
   .hero-ring {
-    @apply absolute inset-0  border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-slate-300/5 shadow-[0_0_80px_inset] shadow-slate-300/5;
+    @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full;
+    border-color: rgb(243, 242, 241);
+    --tw-shadow-colored: inset 0 0 80px rgb(243, 242, 241);
+    box-shadow: var(--tw-shadow-colored);
+    @apply dark:border-slate-300/5 dark:shadow-[0_0_80px_inset] dark:shadow-slate-300/5;
   }
 
   .secondary-color {
-    @apply bg-[#27272B66];
+    @apply bg-[#27272B66] dark:bg-[#18181B66];
   }
 
   body {
-    @apply scroll-smooth bg-white dark:bg-zinc-900;
+    @apply scroll-smooth bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white transition-colors duration-300;
   }
 
   .section-spacing {
     @apply mt-20 md:mt-24;
   }
 
-  
+  /* Typography styles with dark mode */
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-zinc-900 dark:text-white;
+  }
+
+  p {
+    @apply text-zinc-700 dark:text-zinc-300;
+  }
+
+  /* Card and container styles */
+  .card {
+    @apply bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg shadow-sm;
+  }
+
+  .container {
+    @apply px-4 mx-auto;
+  }
+
+  /* Form elements */
+  input, textarea, select {
+    @apply bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white;
+  }
+
+  button {
+    @apply transition-colors duration-300;
+  }
+
+  /* Links */
+  a {
+    @apply text-zinc-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition-colors duration-300;
+  }
+
+  /* Prose styles for markdown/content */
+  .prose {
+    @apply text-zinc-700 dark:text-zinc-300;
+  }
+
   .prose h1,
   .prose h2,
   .prose h3,
   .prose h4,
   .prose h5,
   .prose h6 {
-    @apply text-white;
+    @apply text-zinc-900 dark:text-white;
   }
 
   .prose *,
   .prose strong,
   .prose a,
   .prose p {
-    @apply text-zinc-400;
+    @apply text-zinc-700 dark:text-zinc-300;
   }
 
   .prose h1 {
-    @apply font-bold lg:text-5xl text-3xl lg:leading-tight mb-4 text-white;
+    @apply font-bold lg:text-5xl text-3xl lg:leading-tight mb-4;
   }
 
   .prose p {
@@ -49,15 +89,15 @@
   }
 
   .prose a {
-    @apply text-indigo-600 hover:text-indigo-800;
+    @apply text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300;
   }
 
   .prose pre {
-    @apply bg-gray-100 p-4 rounded-lg;
+    @apply bg-zinc-100 dark:bg-zinc-800 p-4 rounded-lg;
   }
 
   .prose img {
-    @apply rounded-xl border border-zinc-800;
+    @apply rounded-xl border border-zinc-200 dark:border-zinc-700;
   }
 }
 

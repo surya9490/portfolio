@@ -67,7 +67,7 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-zinc-900 text-white antialiased font-sans h-full"
+          "bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white antialiased font-sans h-full transition-colors duration-300"
         )}
         style={{
           backgroundImage: `url(${grainImage.src})`,

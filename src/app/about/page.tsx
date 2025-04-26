@@ -1,4 +1,3 @@
-
 import surya from "@/assets/images/surya.jpg";
 import Image from "next/image";
 
@@ -7,10 +6,10 @@ export default function About() {
     <section className="container md:px-16 px-6 my-20">
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
         <div>
-          <h1 className="font-sans font-extrabold text-4xl mb-8">
+          <h1 className="font-sans font-extrabold text-4xl mb-8 bg-gradient-to-r from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 bg-clip-text text-zinc-900 dark:text-transparent">
             I'm surya kiran,<br/> Frontend devloper.
           </h1>
-          <div className="text-white/50">
+          <div className="text-zinc-500 dark:text-white/50">
             <p>
               Hello! I'm a passionate frontend developer dedicated to crafting
               engaging, user-friendly experiences. With expertise in React and
@@ -26,8 +25,8 @@ export default function About() {
               diverse teams and exchanging ideas to deliver impactful solutions.
               Whether it's tackling a complex problem or diving into a new
               project, I'm always excited to take on challenges and grow
-              alongside talented peers. If you’re looking for someone who values
-              growth, creativity, and a strong user experience, let’s connect!
+              alongside talented peers. If you're looking for someone who values
+              growth, creativity, and a strong user experience, let's connect!
             </p>
           </div>
         </div>
@@ -40,7 +39,7 @@ export default function About() {
               download="resume.pdf"
               target="_blank"
               href='/documents/resume.pdf'
-              className="flex secondary-color cursor-pointer items-center justify-center gap-x-2 bg-[#1d1d20] border border-transparent hover:border-zinc-700 rounded-md duration-200 py-2 text-center font-medium"
+              className="flex cursor-pointer items-center justify-center gap-x-2 bg-gradient-to-r from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 text-zinc-900 dark:text-gray-900 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:border-zinc-700 rounded-md duration-200 py-2 text-center font-medium"
             >
               <svg
                 stroke="currentColor"

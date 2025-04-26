@@ -12,74 +12,75 @@ export type FormData = {
 
 const Contact: FC = () => {
   const { register, handleSubmit, reset } = useForm<FormData>();
-  const [isSending,setIsSending] = useState<boolean>(false);
+  const [isSending, setIsSending] = useState<boolean>(false);
 
   async function onSubmit(data: FormData) {
+    setIsSending(true);
     try {
-      setIsSending(true);
-      const response = await sendEmail(data);
+      await sendEmail(data);
+      reset();
     } catch (error) {
-      console.error("Failed to send email:", error);
-    }finally {
+      console.error("Error sending email:", error);
+    } finally {
       setIsSending(false);
-      reset()
     }
   }
 
   return (
-    <div className="container mb-10">
-      <h1 className="text-3xl font-bold  text-center my-10">Contact Me</h1>
-      <div className="secondary-color rounded-md">
-        <div className="sm:px-5 md:max-w-xl mx-auto  py-10">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-5">
-              <label
-                htmlFor="name"
-                className="mb-3 block text-base font-medium text-white/70"
+    <div className="min-h-screen pt-20 pb-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-4xl font-bold mb-8 text-zinc-900 dark:text-white">Contact Me</h1>
+          <div className="bg-white dark:bg-zinc-800 rounded-xl shadow-sm border border-zinc-200 dark:border-zinc-700 p-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  {...register("name", { required: true })}
+                  className="w-full px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                  placeholder="Your name"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  {...register("email", { required: true })}
+                  className="w-full px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                  placeholder="Your email"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  {...register("message", { required: true })}
+                  rows={6}
+                  className="w-full px-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-purple-500 dark:focus:ring-purple-400"
+                  placeholder="Your message"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSending}
+                className="w-full py-3 px-4 rounded-lg bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-medium transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full rounded-md border border-transparent bg-black/20 py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-zinc-700 focus:shadow-md"
-                {...register("name", { required: true })}
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="email"
-                className="mb-3 block text-base font-medium text-white/70"
-              >
-                Email Address
-              </label>
-              <input
-                type="email"
-                placeholder="example@domain.com"
-                className="w-full rounded-md border border-transparent bg-black/20 py-3 px-6 text-base font-medium text-white/70 outline-none focus:border-zinc-700 focus:shadow-md"
-                {...register("email", { required: true })}
-              />
-            </div>
-            <div className="mb-5">
-              <label
-                htmlFor="message"
-                className="mb-3 block text-base font-medium text-white/70"
-              >
-                Message
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Type your message"
-                className="w-full resize-none rounded-md border border-transparent bg-black/20 py-3 px-6 text-base font-medium text-white/70 outline-none focus:border-zinc-700  focus:shadow-md"
-                {...register("message", { required: true })}
-              ></textarea>
-            </div>
-            <div className="text-right">
-              <button className="hover:shadow-form  rounded-md bg-black/20 border border-transparent hover:border-white/50 py-3 px-8 text-base font-semibold text-white outline-none">
-                {isSending ? "Sending..." : "Send"}
+                {isSending ? "Sending..." : "Send Message"}
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>

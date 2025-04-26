@@ -1,5 +1,3 @@
-
-
 /** @type {NextConfig} */
 const nextConfig = {
   images: {
@@ -12,6 +10,14 @@ const nextConfig = {
     ],
   },
   webpack(config) {
+    // Suppress punycode deprecation warning
+    config.ignoreWarnings = [
+      {
+        module: /node_modules\/punycode/,
+        message: /The `punycode` module is deprecated/,
+      },
+    ];
+
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")

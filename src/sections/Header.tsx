@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <>
       {/* Header for Desktop and Mobile */}
-      <header className="sticky top-0 z-[99] dark:bg-primary-dark bg-primary-light  border-b border-zinc-800">
+      <header className="sticky top-0 z-[99] dark:bg-primary-dark bg-primary-light  border-b border-zinc-800 border-b-transparent">
         <div className="py-6 md:px-16 px-6 max-w-6xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <Link href="/">

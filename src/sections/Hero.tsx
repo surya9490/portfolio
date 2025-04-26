@@ -12,7 +12,7 @@ export const HeroSection = () => {
     <div className="py-32 md:py-48 lg:py-60 relative z-1 overflow-x-clip">
       <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
         <div
-          className="absolute inset-0 -z-30 opacity-5"
+          className="absolute inset-0 -z-30 opacity-15 dark:opacity-5 transition-opacity duration-300"
           style={{ backgroundImage: `url(${grainImage})` }}
         ></div>
         <div className="size-[620px] hero-ring"></div>
@@ -27,7 +27,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <SparkleIcon className="size-8 text-emerald-300/20" />
+          <SparkleIcon className="size-8 text-emerald-500/40 dark:text-emerald-300/20" />
         </HeroOrbit>
         <HeroOrbit
           size={440}
@@ -37,10 +37,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <SparkleIcon className="size-5 text-emerald-300/20" />
+          <SparkleIcon className="size-5 text-emerald-500/40 dark:text-emerald-300/20" />
         </HeroOrbit>
         <HeroOrbit size={520} rotation={-41} shouldOrbit orbitDuration="34s">
-          <div className="size-2 rounded-full bg-emerald-300/20"></div>
+          <div className="size-2 rounded-full bg-emerald-500/40 dark:bg-emerald-300/20"></div>
         </HeroOrbit>
         <HeroOrbit
           size={530}
@@ -50,7 +50,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <SparkleIcon className="size-10 text-emerald-300/20" />
+          <SparkleIcon className="size-10 text-emerald-500/40 dark:text-emerald-300/20" />
         </HeroOrbit>
         <HeroOrbit
           size={550}
@@ -60,7 +60,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <StarIcon className="size-12 text-emerald-300" />
+          <StarIcon className="size-12 text-emerald-600/60 dark:text-emerald-300" />
         </HeroOrbit>
         <HeroOrbit
           size={590}
@@ -70,10 +70,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <StarIcon className="size-8 text-emerald-300" />
+          <StarIcon className="size-8 text-emerald-600/60 dark:text-emerald-300" />
         </HeroOrbit>
         <HeroOrbit size={650} rotation={-5} shouldOrbit orbitDuration="42s">
-          <div className="size-2 rounded-full bg-emerald-300/20"></div>
+          <div className="size-2 rounded-full bg-emerald-500/40 dark:bg-emerald-300/20"></div>
         </HeroOrbit>
         <HeroOrbit
           size={710}
@@ -83,10 +83,10 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="3s"
         >
-          <SparkleIcon className="size-14 text-emerald-300/20" />
+          <SparkleIcon className="size-14 text-emerald-500/40 dark:text-emerald-300/20" />
         </HeroOrbit>
         <HeroOrbit size={720} rotation={85} shouldOrbit orbitDuration="46s">
-          <div className="size-3 rounded-full bg-emerald-300/20"></div>
+          <div className="size-3 rounded-full bg-emerald-500/40 dark:bg-emerald-300/20"></div>
         </HeroOrbit>
         <HeroOrbit
           size={800}
@@ -96,7 +96,7 @@ export const HeroSection = () => {
           shouldSpin
           spinDuration="6s"
         >
-          <StarIcon className="size-28 text-emerald-300" />
+          <StarIcon className="size-28 text-emerald-600/60 dark:text-emerald-300" />
         </HeroOrbit>
       </div>
       <div className="container">
@@ -106,32 +106,32 @@ export const HeroSection = () => {
             className="size-[100px]"
             alt="Person peeking from behind laptop"
           />
-          <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-large">
+          <div className="bg-white dark:bg-gray-950 border border-zinc-200 dark:border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-large backdrop-blur-sm transition-colors duration-300">
             <div className="bg-green-500 size-2.5 rounded-full relative">
-              <div className="bg-green-500 absolute inset-0 rounded-full animate-"></div>
+              <div className="bg-green-500 absolute inset-0 rounded-full animate-ping"></div>
             </div>
-            <div className="text-sm font-medium">
+            <div className="text-sm font-medium text-zinc-700 dark:text-white">
               Available for new projects
             </div>
           </div>
         </div>
         <div className="max-w-lg mx-auto">
-          <h1 className="font-serif text-3xl text-center mt-8  tracking-wide md:text-5xl">
+          <h1 className="font-serif text-3xl text-center mt-8 tracking-wide md:text-5xl text-zinc-700 dark:text-white transition-colors duration-300">
             Building Exceptional User Experiences
           </h1>
-          <p className="mt-4 text-center text-white/60 md:text-lg">
+          <p className="mt-4 text-center text-zinc-500 dark:text-white/60 md:text-lg transition-colors duration-300">
             I specialize in transforming designs into functional, high
             performing web applications. Let&apos;s discuss your next project
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex relative z-2 items-center text-inherit gap-2 border border-white/15 text-gray-900 h-12 px-6 rounded-xl">
-            <span className="font-semibold" >Explore My Work</span>
+          <button className="inline-flex relative z-2 items-center text-inherit gap-2 border border-zinc-200 dark:border-white/15 bg-white dark:bg-transparent text-zinc-700 dark:text-white h-12 px-6 rounded-xl hover:bg-zinc-50 dark:hover:bg-white/5 transition-colors duration-300">
+            <span className="font-semibold">Explore My Work</span>
             <ArrowDown className="size-4" />
           </button>
-          <button className="linline-flex relative z-2 items-center  gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+          <button className="inline-flex relative z-2 items-center gap-2 border border-zinc-200 dark:border-white bg-white dark:bg-white text-zinc-700 dark:text-zinc-900 h-12 px-6 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-50 transition-colors duration-300">
             <span className="">👋</span>
-            <Link className="font-semibold" href='/contact'>Let&apos;s Connect</Link>
+            <Link className="font-semibold dark:text-zinc-900" href='/contact'>Let&apos;s Connect</Link>
           </button>
         </div>
       </div>
