@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/sections/Header";
 
-import {  ThemeProviderComponent } from "@/components/provider";
+import { ThemeProviderComponent } from "@/components/provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const calistoga = Calistoga({
@@ -67,7 +67,7 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white antialiased font-sans h-full transition-colors duration-300"
+          "bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white antialiased font-sans h-full transition-colors duration-300 ease-in-out"
         )}
         style={{
           backgroundImage: `url(${grainImage.src})`,
@@ -76,9 +76,9 @@ export default function RootLayout({
         }}
       >
         <ThemeProviderComponent>
-          <div className="flex flex-col min-h-screen">
+          <div className="flex flex-col min-h-screen transition-colors duration-300 ease-in-out">
             <Header />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 transition-colors duration-300 ease-in-out">{children}</main>
             <Analytics />
             <SpeedInsights />
             <Footer />
