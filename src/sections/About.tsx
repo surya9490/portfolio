@@ -9,7 +9,7 @@ import JavascriptIcon from "../assets/icons/square-js.svg";
 import ReactIcon from "../assets/icons/react.svg";
 import GithubIcon from "../assets/icons/github.svg";
 import ChromeIcon from "../assets/icons/chrome.svg";
-import mapImage from "../assets/images/map.png";
+import mapImage from "../assets/images/india-map.png";
 import smileEmoj from "../assets/images/memoji-smile.png";
 import CardHeader from "@/components/CardHeader";
 import ShopifyIcon from "../assets/icons/shopify.svg";

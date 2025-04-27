@@ -59,7 +59,7 @@ export default function Header() {
           <div className="flex gap-8 justify-center items-center">
             <ThemeToggle />
             <button
-              className="flex flex-col items-center h-full space-y-1 w-8 h-8 md:hidden focus:outline-none"
+              className="flex flex-col items-center space-y-1 w-8 h-8 md:hidden focus:outline-none"
               onClick={toggleDrawer}
             >
               <div
@@ -82,9 +82,17 @@ export default function Header() {
         </div>
         <ScrollProgressBar />
 
+        {/* Overlay */}
+        {isOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 z-[9] md:hidden"
+            onClick={toggleDrawer}
+          />
+        )}
+
         {/* Mobile Drawer */}
         <div
-          className={`fixed top-0 left-0 h-full z-[100] w-64 dark:bg-zinc-900 bg-white shadow-lg transform transition-all duration-300 ease-in-out md:hidden ${
+          className={`fixed top-0 left-0 h-full min-h-[100vh] z-[100] w-64 dark:bg-zinc-900 bg-white shadow-lg transform transition-all duration-300 ease-in-out md:hidden ${
             isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >

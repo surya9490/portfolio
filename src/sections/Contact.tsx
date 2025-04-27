@@ -24,7 +24,7 @@ export const ContactSection = () => {
               </p>
             </div>
             <div>
-              <button className="bg-white dark:bg-gray-900 text-white inline-flex items-center px-6 h-12 rounded-xl gap-2 mt-8 w-max border-b-gray-900 ">
+              <button className="bg-white dark:bg-gray-900 dark:text-white text-zinc-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 mt-8 w-max border-b-gray-900 ">
                 <Link href={"/contact"} className="font-semibold">Contact Me</Link>
                 <ArrowUpRightIcon className="size-4" />
               </button>

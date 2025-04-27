@@ -1,5 +1,5 @@
-import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
-import lightSaasLandingPage from "@/assets/images/light-saas-landing-page.png";
+import nasherMiles from "@/assets/images/nashermilesfinal.png";
+import ucb from "@/assets/images/ucb-final.png";
 import aiStartupLandingPage from "@/assets/images/ai-startup-landing-page.png";
 import Image from "next/image";
 import CheckIcon from "../assets/icons/check-circle.svg";
@@ -8,41 +8,29 @@ import { Card } from "@/components/Card";
 
 const portfolioProjects = [
   {
-    company: "Acme Corp",
-    year: "2022",
-    title: "Dark Saas Landing Page",
+    company: "Nasher Miles",
+    year: "2024",
+    title: "Shopify store",
     results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
+      { title: "Developed and maintained a Shopify store" },
+      { title: "increased the mobile traffic by 35%" },
+      { title: "improved the page speed by 50%" },
     ],
-    link: "#",
-    image: darkSaasLandingPage,
+    link: "https://nashermiles.com/",
+    image: nasherMiles,
   },
   {
-    company: "Innovative Co",
-    year: "2021",
-    title: "Light Saas Landing Page",
+    company: "United Colors of Benetton",
+    year: "2024",
+    title: "E-commerce store",
     results: [
       { title: "Boosted sales by 20%" },
       { title: "Expanded customer reach by 35%" },
       { title: "Increased brand awareness by 15%" },
     ],
-    link: "#",
-    image: lightSaasLandingPage,
-  },
-  {
-    company: "Quantum Dynamics",
-    year: "2023",
-    title: "AI Startup Landing Page",
-    results: [
-      { title: "Enhanced user experience by 40%" },
-      { title: "Improved site speed by 50%" },
-      { title: "Increased mobile traffic by 35%" },
-    ],
-    link: "#",
-    image: aiStartupLandingPage,
-  },
+    link: "https://in.benetton.com/",
+    image: ucb,
+  }
 ];
 
 export const ProjectsSection = () => {
