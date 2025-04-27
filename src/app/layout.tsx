@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Calistoga } from "next/font/google";
+import { Inter, Calistoga, Russo_One } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 
 import grainImage from "../assets/images/noise.51a05f55.png";
@@ -12,6 +12,11 @@ import Header from "@/sections/Header";
 import { ThemeProviderComponent } from "@/components/provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const russoOne = Russo_One({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-heading',
+});
 const calistoga = Calistoga({
   subsets: ["latin"],
   variable: "--font-serif",

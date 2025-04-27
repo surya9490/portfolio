@@ -20,6 +20,10 @@ const links: { title: string; href: string }[] = [
     title: "Contact",
     href: "/contact",
   },
+  {
+    title: "Shopify",
+    href: "/shopify",
+  },
 ];
 
 export default function Header() {

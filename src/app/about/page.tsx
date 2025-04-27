@@ -39,7 +39,7 @@ export default function About() {
               download="resume.pdf"
               target="_blank"
               href='/documents/resume.pdf'
-              className="flex cursor-pointer items-center justify-center gap-x-2 bg-gradient-to-r from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 text-zinc-900 dark:text-gray-900 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:border-zinc-700 rounded-md duration-200 py-2 text-center font-medium"
+              className="flex hidden cursor-pointer items-center justify-center gap-x-2 bg-gradient-to-r from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 text-zinc-900 dark:text-gray-900 border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:border-zinc-700 rounded-md duration-200 py-2 text-center font-medium"
             >
               <svg
                 stroke="currentColor"

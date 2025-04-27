@@ -69,6 +69,7 @@ const config: Config = {
       fontFamily: {
         sans: "var(--font-sans)", // Ensure CSS custom variables are defined in your styles
         serif: "var(--font-serif)",
+        heading: "var(--font-heading)",
       },
       animation: {
         "ping-large": "ping-large 1s ease-in-out infinite",

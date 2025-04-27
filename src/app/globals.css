@@ -29,7 +29,7 @@
 
   /* Typography styles with dark mode */
   h1, h2, h3, h4, h5, h6 {
-    @apply text-zinc-900 dark:text-white;
+    @apply text-zinc-900 dark:text-white font-heading;
   }
 
   p {
