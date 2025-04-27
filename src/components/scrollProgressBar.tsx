@@ -8,7 +8,7 @@ const ScrollProgressBar = () => {
   const pathname = usePathname();
 
   // Determine whether the progress bar should be shown
-  const shouldShowProgressBar = pathname?.startsWith("/post");
+  const shouldShowProgressBar = pathname?.startsWith("/post") || pathname?.startsWith("/shopify");
 
   useEffect(() => {
     if (!shouldShowProgressBar) return;
@@ -32,9 +32,9 @@ const ScrollProgressBar = () => {
   if (!shouldShowProgressBar) return null;
 
   return (
-    <div className="w-full h-[4px] bg-transparent">
+    <div className="w-full h-[3px] bg-transparent">
       <div
-        className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"
+        className="h-full bg-gradient-to-r from-indigo-400 via-purple-400  to-pink-500"
         style={{ width: `${scrollProgress}%` }}
       ></div>
     </div>
