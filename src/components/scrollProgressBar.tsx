@@ -1,44 +1,28 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const ScrollProgressBar = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const pathname = usePathname();
-
-  // Determine whether the progress bar should be shown
-  const shouldShowProgressBar = pathname?.startsWith("/post") || pathname?.startsWith("/shopify");
+export default function ScrollProgressBar() {
+  const [scrollPercentage, setScrollPercentage] = useState(0);
 
   useEffect(() => {
-    if (!shouldShowProgressBar) return;
-
     const handleScroll = () => {
       const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const progress = (scrollTop / scrollHeight) * 100;
-      setScrollProgress(progress);
+      setScrollPercentage(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [shouldShowProgressBar]);
-
-  if (!shouldShowProgressBar) return null;
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="w-full h-[3px] bg-transparent">
+    <div className="fixed top-[64px] md:top-[80px] left-0 w-full h-[3px] bg-transparent z-[98]">
       <div
-        className="h-full bg-gradient-to-r from-indigo-400 via-purple-400  to-pink-500"
-        style={{ width: `${scrollProgress}%` }}
-      ></div>
+        className="h-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-500 transition-all duration-75"
+        style={{ width: `${scrollPercentage}%` }}
+      />
     </div>
   );
-};
-
-export default ScrollProgressBar;
+}
