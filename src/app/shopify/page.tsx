@@ -1,6 +1,6 @@
 "use client";
 
-import ProductGrid from "@/components/ShopifyProjects";
+import ShopifyProjects from "@/components/ShopifyProjects";
 import Filters from "@/components/Filters";
 import { useState } from "react";
 import Image, { StaticImageData } from 'next/image';
@@ -109,9 +109,9 @@ const projectList: Project[] = [
 ];
 
 const tagsCondition = {
-  Shopify: "And",
-  Retainer: "Or",
-  "Full build": "Or",
+  Shopify: "and",
+  Retainer: "or",
+  "Full build": "or",
 };
 
 export default function Shopify() {
@@ -160,7 +160,7 @@ export default function Shopify() {
             onTagsChange={setSelectedTags}
             selectedTags={selectedTags}
           />
-          <ProductGrid products={filteredProjects} />
+          <ShopifyProjects products={filteredProjects} />
         </div>
       </div>
     </section>

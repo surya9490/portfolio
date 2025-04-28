@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import Logo from "../../public/logo.png";
 import ScrollProgressBar from "@/components/scrollProgressBar";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import Search from "@/components/Search";
 
 const links: { title: string; href: string }[] = [
   {
@@ -81,6 +82,7 @@ export default function Header() {
 
             {/* Theme Toggle and Mobile Menu */}
             <div className="flex items-center space-x-4">
+              <Search />
               <ThemeToggle />
               
               {/* Mobile Menu Button */}
