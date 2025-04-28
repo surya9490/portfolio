@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -9,36 +9,45 @@ import ScrollProgressBar from "@/components/scrollProgressBar";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links: { title: string; href: string }[] = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "About",
-    href: "/about",
-  },
-  {
-    title: "Contact",
-    href: "/contact",
-  },
-  {
-    title: "Shopify",
-    href: "/shopify",
-  },
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Contact", href: "/contact" },
+  { title: "Shopify", href: "/shopify" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const navBgRef = useRef<HTMLSpanElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleMouseEnter = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const link = event.currentTarget;
+    const nav = navRef.current;
+    if (nav && navBgRef.current) {
+      const linkRect = link.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+      navBgRef.current.style.transform = `translateX(${linkRect.left - navRect.left}px)`;
+      navBgRef.current.style.width = `${linkRect.width}px`;
+      navBgRef.current.style.opacity = "1";
+    }
+  };
+
+  const handleMouseLeaveNav = () => {
+    if (navBgRef.current) {
+      navBgRef.current.style.opacity = "0";
+      navBgRef.current.style.transform = "translateY(-50%) scale(0.95)";
+    }
+  };
 
   return (
     <>
@@ -60,20 +69,48 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav 
+              ref={navRef}
+              className="hidden md:flex items-center space-x-6 relative"
+              onMouseLeave={handleMouseLeaveNav}
+            >
+              <div className="absolute inset-0 pointer-events-none">
+                <span 
+                  ref={navBgRef} 
+                  className="absolute h-9 bg-[rgb(222_29_141)]/10 backdrop-blur-sm rounded-xl transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] opacity-0 shadow-[0_0_20px_rgba(222,29,141,0.15)] border border-[rgb(222_29_141)]/20"
+                  style={{ top: '50%', transform: 'translateY(-50%)' }}
+                />
+              </div>
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                  className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                     pathname === link.href
                       ? 'text-[rgb(222_29_141)]'
                       : 'text-zinc-600 dark:text-zinc-300 hover:text-[rgb(222_29_141)]'
                   }`}
+                  onMouseEnter={(e) => {
+                    if (navBgRef.current) {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      const navRect = navRef.current?.getBoundingClientRect();
+                      if (navRect) {
+                        navBgRef.current.style.left = `${rect.left - navRect.left}px`;
+                        navBgRef.current.style.width = `${rect.width}px`;
+                        navBgRef.current.style.opacity = "1";
+                        navBgRef.current.style.transform = `translateY(-50%) scale(1.05)`;
+                      }
+                    }
+                  }}
                 >
                   {link.title}
                   {pathname === link.href && (
-                    <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-[rgb(222_29_141)] transform scale-x-100 transition-transform duration-300" />
+                    <span 
+                      className="absolute inset-0 rounded-lg bg-[rgb(222_29_141)]/10 transform scale-100 transition-transform duration-300 ease-out"
+                      style={{
+                        boxShadow: '0 0 20px rgba(222,29,141,0.15)',
+                      }}
+                    />
                   )}
                 </Link>
               ))}
@@ -82,7 +119,6 @@ export default function Header() {
             {/* Theme Toggle and Mobile Menu */}
             <div className="flex items-center space-x-4">
               <ThemeToggle />
-              
               {/* Mobile Menu Button */}
               <button
                 className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-300"
@@ -155,6 +191,8 @@ export default function Header() {
           </nav>
         </div>
       </div>
+
+      {/* Scroll Progress Bar */}
       {!isOpen && <ScrollProgressBar />}
     </>
   );
