@@ -46,7 +46,7 @@ export default function Header() {
         scrolled 
           ? 'bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-sm' 
           : 'bg-transparent'
-      }`}>
+      } ${isOpen ? 'hidden' : 'block'}`}>
         <div className="container mx-auto px-4 md:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
@@ -98,7 +98,7 @@ export default function Header() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
               </button>
@@ -107,7 +107,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Navigation - Moved outside the main header */}
+      {/* Mobile Navigation */}
       <div
         className={`md:hidden fixed inset-0 z-50 bg-white dark:bg-zinc-900 transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -155,8 +155,7 @@ export default function Header() {
           </nav>
         </div>
       </div>
-
-      <ScrollProgressBar />
+      {!isOpen && <ScrollProgressBar />}
     </>
   );
 }

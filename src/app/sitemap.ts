@@ -12,29 +12,41 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${BASE_URL}/`,
       lastModified: new Date().toISOString(),
-      changeFrequency: "monthly", // Correct value
+      changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${BASE_URL}/about`,
       lastModified: new Date().toISOString(),
-      changeFrequency: "monthly", // Correct value
+      changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/contact`,
       lastModified: new Date().toISOString(),
-      changeFrequency: "monthly", // Correct value
+      changeFrequency: "monthly",
       priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/shopify`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${BASE_URL}/post`,
+      lastModified: new Date().toISOString(),
+      changeFrequency: "weekly",
+      priority: 0.8,
     },
   ];
 
   // Dynamic blog post routes
   const dynamicRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
+    url: `${BASE_URL}/post/${post.slug}`,
     lastModified: post.mtime.toISOString(),
-    changeFrequency: "weekly", // Correct value
-    priority: 0.8,
+    changeFrequency: "weekly",
+    priority: 0.7,
   }));
 
   // Combine static and dynamic routes
