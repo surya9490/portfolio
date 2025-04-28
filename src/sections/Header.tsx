@@ -45,7 +45,7 @@ export default function Header() {
     <>
       <header className={`sticky top-0 z-[99] transition-all duration-300 ${
         scrolled 
-          ? 'bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-sm' 
+          ? 'bg-background/80 backdrop-blur-md shadow-sm border-b' 
           : 'bg-transparent'
       } ${isOpen ? 'hidden' : 'block'}`}>
         <div className="container mx-auto px-4 md:px-6">
@@ -68,13 +68,13 @@ export default function Header() {
                   href={link.href}
                   className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
                     pathname === link.href
-                      ? 'text-[rgb(222_29_141)]'
-                      : 'text-zinc-600 dark:text-zinc-300 hover:text-[rgb(222_29_141)]'
+                      ? 'text-primary'
+                      : 'text-muted-foreground hover:text-primary'
                   }`}
                 >
                   {link.title}
                   {pathname === link.href && (
-                    <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-[rgb(222_29_141)] transform scale-x-100 transition-transform duration-300" />
+                    <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-primary transform scale-x-100 transition-transform duration-300" />
                   )}
                 </Link>
               ))}
@@ -87,11 +87,11 @@ export default function Header() {
               
               {/* Mobile Menu Button */}
               <button
-                className="md:hidden p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-300"
+                className="md:hidden p-2 rounded-lg hover:bg-accent transition-colors duration-300"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 <svg
-                  className="w-6 h-6 text-zinc-600 dark:text-zinc-300"
+                  className="w-6 h-6 text-muted-foreground"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -111,21 +111,21 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-white dark:bg-zinc-900 transform transition-transform duration-300 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-50 bg-background transform transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
-          <div className="flex items-center justify-between p-4 border-b border-zinc-200 dark:border-zinc-800">
+          <div className="flex items-center justify-between p-4 border-b">
             <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
               <Image src={Logo} alt="Logo" className="h-8 w-auto" />
             </Link>
             <button
-              className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors duration-300"
+              className="p-2 rounded-lg hover:bg-accent transition-colors duration-300"
               onClick={() => setIsOpen(false)}
             >
               <svg
-                className="w-6 h-6 text-zinc-600 dark:text-zinc-300"
+                className="w-6 h-6 text-muted-foreground"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -146,8 +146,8 @@ export default function Header() {
                 href={link.href}
                 className={`block px-4 py-3 text-lg font-medium rounded-lg transition-colors duration-300 ${
                   pathname === link.href
-                    ? 'bg-[rgb(222_29_141)]/10 text-[rgb(222_29_141)]'
-                    : 'text-zinc-600 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800'
+                    ? 'bg-primary/10 text-primary'
+                    : 'text-muted-foreground hover:bg-accent'
                 }`}
                 onClick={() => setIsOpen(false)}
               >

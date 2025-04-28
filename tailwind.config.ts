@@ -24,18 +24,38 @@ const config: Config = {
     },
     extend: {
       colors: {
-        // General Colors
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          light: "#ffffff", 
-          dark: "#18181b", 
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          light: "gray-700", // Secondary color for light mode
-          dark: "gray-300",  // Secondary color for dark mode
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          light: "amber-500", // Accent color for light mode
-          dark: "amber-400",  // Accent color for dark mode
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
         header: {
           light: "gray-900", // Header text for light mode
@@ -59,12 +79,11 @@ const config: Config = {
           light: "gray-900", // Text color for light mode
           dark: "gray-100",  // Text color for dark mode
         },
-
-        // Border Colors
-        border: {
-          light: "gray-300", // Border for light mode
-          dark: "gray-700",  // Border for dark mode
-        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
         sans: "var(--font-sans)", // Ensure CSS custom variables are defined in your styles
@@ -75,6 +94,8 @@ const config: Config = {
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
         "move-right": "move-right 1s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         "ping-large": {
@@ -98,6 +119,14 @@ const config: Config = {
           "100%": {
             transform: "translateX(0%)",
           },
+        },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
     },
