@@ -25,6 +25,10 @@ const links: { title: string; href: string }[] = [
     title: "Shopify",
     href: "/shopify",
   },
+  {
+    title:"Shopify headless",
+    "href":"https://eshop-olive-nine.vercel.app/collections/men"
+  }
 ];
 
 export default function Header() {
