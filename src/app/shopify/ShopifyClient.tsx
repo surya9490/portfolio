@@ -1,18 +1,14 @@
 "use client";
+
 import ProductGrid from "@/components/ShopifyProjects";
 import Filters from "@/components/Filters";
 import { useState } from "react";
 import { Project } from "./data";
+import ScrollReveal from "@/components/ScrollReveal";
 
 interface ShopifyClientProps {
   projectList: Project[];
 }
-
-const tagsCondition = {
-  Shopify: "And",
-  Retainer: "Or",
-  "Full build": "Or",
-};
 
 export default function ShopifyClient({ projectList }: ShopifyClientProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>(["Shopify"]);
@@ -37,25 +33,36 @@ export default function ShopifyClient({ projectList }: ShopifyClientProps) {
       : projectList;
 
   return (
-    <section className="container md:px-16 px-6 my-20 flex flex-col gap-y-10">
-      <div className="grid grid-cols-1 gap-10 justify-items-center">
-        <div className="w-full text-left">
-          <h1 className="font-sans font-extrabold text-4xl mb-8 bg-gradient-to-r font-russo from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 bg-clip-text text-zinc-900 dark:text-transparent">
-            Shopify Projects
-          </h1>
-          <p className="text-zinc-500 dark:text-white/50 max-w-2xl">
-            Over the years, I've worked on many exciting Shopify projects — some were full builds, some ongoing retainers, and some focused on custom Checkout UI extensions.
-            Here's a collection of a few projects I've been part of. Each one reflects the passion and experience I bring into building Shopify experiences.
-          </p>
-        </div>
-        <div className="w-full flex flex-col gap-y-4">
-          <Filters classes="lg:w-[250px] lg:justify-self-end"
-            onTagsChange={setSelectedTags}
-            selectedTags={selectedTags}
-          />
-          <ProductGrid products={filteredProjects} />
-        </div>
+    <div className="pt-28 pb-20">
+      <div className="container">
+        <ScrollReveal>
+          <div className="max-w-3xl mb-12">
+            <p className="uppercase font-semibold tracking-widest text-sm gradient-text mb-4">
+              Portfolio
+            </p>
+            <h1 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-zinc-900 dark:text-white mb-4">
+              Shopify Projects
+            </h1>
+            <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              Over the years, I&apos;ve worked on many exciting Shopify projects
+              — some were full builds, some ongoing retainers, and some focused
+              on custom Checkout UI extensions. Here&apos;s a collection of
+              projects I&apos;ve been part of.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1}>
+          <div className="flex flex-col gap-6">
+            <Filters
+              classes="lg:w-[250px] lg:justify-self-end"
+              onTagsChange={setSelectedTags}
+              selectedTags={selectedTags}
+            />
+            <ProductGrid products={filteredProjects} />
+          </div>
+        </ScrollReveal>
       </div>
-    </section>
+    </div>
   );
-} 
+}

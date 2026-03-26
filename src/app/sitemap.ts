@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic blog post routes
   const dynamicRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE_URL}/post/${post.slug}`,
-    lastModified: post.mtime.toISOString(),
+    lastModified: post.mtime ? post.mtime.toISOString() : new Date().toISOString(),
     changeFrequency: "weekly",
     priority: 0.7,
   }));

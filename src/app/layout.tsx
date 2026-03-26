@@ -2,20 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter, Calistoga, Russo_One } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-
-import grainImage from "../assets/images/noise.51a05f55.png";
 import { Footer } from "@/sections/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "@/sections/Header";
-
 import { ThemeProviderComponent } from "@/components/provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const russoOne = Russo_One({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-heading',
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-heading",
 });
 const calistoga = Calistoga({
   subsets: ["latin"],
@@ -24,26 +21,25 @@ const calistoga = Calistoga({
 });
 
 export const metadata: Metadata = {
-  title: "Surya Kiran Palipireddy | Web Developer Portfolio",
+  title: "Surya Kiran Palipireddy | Senior Shopify Developer & Team Lead",
   description:
-    "Surya Kiran Palipireddy's professional portfolio in web development, React, and Shopify.",
+    "Senior Shopify Developer and Team Lead with 3+ years of experience delivering 50+ successful eCommerce projects. Expert in Liquid, React, JavaScript, and Shopify Plus.",
   keywords: [
     "Surya Kiran",
     "Surya Kiran Palipireddy",
-    "Surya portfolio",
-    "Surya Kiran portfolio",
-    "web developer",
-    "frontend developer",
-    "React developer",
-    "Shopify developer",
-    "Next.js developer",
-    "JavaScript developer",
-    "professional portfolio",
+    "Senior Shopify Developer",
+    "Shopify Team Lead",
+    "Shopify Plus Developer",
+    "Frontend Developer",
+    "React Developer",
+    "eCommerce Developer",
+    "Liquid Developer",
+    "Shopify Expert",
   ],
   openGraph: {
-    title: "Surya Kiran Palipireddy | Web Developer Portfolio",
+    title: "Surya Kiran Palipireddy | Senior Shopify Developer & Team Lead",
     description:
-      "Explore projects and skills in React and Shopify development.",
+      "50+ eCommerce projects delivered. Expert in Shopify, React, and performance optimization.",
     type: "website",
     url: "https://www.dev-surya.online",
     images: [
@@ -55,8 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Surya Kiran Palipireddy | Web Developer Portfolio",
-    description: "Discover projects and expertise in React and Shopify.",
+    title: "Surya Kiran Palipireddy | Senior Shopify Developer & Team Lead",
+    description:
+      "50+ eCommerce projects delivered. Expert in Shopify, React, and performance optimization.",
     images: "/thumbnail.jpg",
   },
 };
@@ -72,18 +69,14 @@ export default function RootLayout({
         className={twMerge(
           inter.variable,
           calistoga.variable,
-          "bg-neutral-100 dark:bg-zinc-900 text-zinc-900 dark:text-white antialiased font-sans h-full transition-colors duration-300 ease-in-out"
+          russoOne.variable,
+          "bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased font-sans min-h-screen transition-colors duration-500"
         )}
-        style={{
-          backgroundImage: `url(${grainImage.src})`,
-          backgroundSize: "200px 200px",
-          backgroundPosition: "0 0",
-        }}
       >
         <ThemeProviderComponent>
-          <div className="flex flex-col min-h-screen transition-colors duration-300 ease-in-out">
+          <div className="flex flex-col min-h-screen relative">
             <Header />
-            <main className="flex-1 transition-colors duration-300 ease-in-out">{children}</main>
+            <main className="flex-1">{children}</main>
             <Analytics />
             <SpeedInsights />
             <Footer />

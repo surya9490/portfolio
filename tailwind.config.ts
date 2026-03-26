@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "class", // Enables class-based dark mode
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,7 +10,7 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      sm: "275px",
+      sm: "375px",
       md: "768px",
       lg: "1200px",
       xl: "1560px",
@@ -23,51 +23,8 @@ const config: Config = {
       },
     },
     extend: {
-      colors: {
-        // General Colors
-        primary: {
-          light: "#ffffff", 
-          dark: "#18181b", 
-        },
-        secondary: {
-          light: "gray-700", // Secondary color for light mode
-          dark: "gray-300",  // Secondary color for dark mode
-        },
-        accent: {
-          light: "amber-500", // Accent color for light mode
-          dark: "amber-400",  // Accent color for dark mode
-        },
-        header: {
-          light: "gray-900", // Header text for light mode
-          dark: "gray-100",  // Header text for dark mode
-        },
-
-        // Feedback Colors
-        success: {
-          light: "green-500", // Success color for light mode
-          dark: "green-400",  // Success color for dark mode
-        },
-        warning: {
-          light: "yellow-500", // Warning color for light mode
-          dark: "yellow-400",  // Warning color for dark mode
-        },
-        error: {
-          light: "red-500", // Error color for light mode
-          dark: "red-400",  // Error color for dark mode
-        },
-        text: {
-          light: "gray-900", // Text color for light mode
-          dark: "gray-100",  // Text color for dark mode
-        },
-
-        // Border Colors
-        border: {
-          light: "gray-300", // Border for light mode
-          dark: "gray-700",  // Border for dark mode
-        },
-      },
       fontFamily: {
-        sans: "var(--font-sans)", // Ensure CSS custom variables are defined in your styles
+        sans: "var(--font-sans)",
         serif: "var(--font-serif)",
         heading: "var(--font-heading)",
       },
@@ -75,6 +32,17 @@ const config: Config = {
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
         "move-right": "move-right 1s linear infinite",
+        "float": "float 6s ease-in-out infinite",
+        "float-delayed": "float 6s ease-in-out 3s infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 8s ease infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "slide-down": "slide-down 0.6s ease-out",
+        "fade-in": "fade-in 0.6s ease-out",
+        "scale-in": "scale-in 0.5s ease-out",
+        "spin-slow": "spin 20s linear infinite",
+        "marquee": "marquee 30s linear infinite",
+        "shimmer": "shimmer 2s linear infinite",
       },
       keyframes: {
         "ping-large": {
@@ -84,20 +52,48 @@ const config: Config = {
           },
         },
         "move-left": {
-          "0%": {
-            transform: "translateX(0)",
-          },
-          "100%": {
-            transform: "translateX(-50%)",
-          },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
         "move-right": {
-          "0%": {
-            transform: "translateX(-50%)",
-          },
-          "100%": {
-            transform: "translateX(0%)",
-          },
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(30px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-down": {
+          "0%": { transform: "translateY(-30px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { transform: "scale(0.9)", opacity: "0" },
+          "100%": { transform: "scale(1)", opacity: "1" },
+        },
+        "marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
     },

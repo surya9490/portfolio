@@ -1,37 +1,69 @@
+"use client";
+
 import Link from "next/link";
-import ArrowUpRightIcon from "../assets/icons/arrow-up-right.svg";
-import grainImage from "../assets/images/grain.jpg";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const ContactSection = () => {
   return (
-    <div className="py-16 pt-12 lg:py-24 lg:pt-20">
+    <section className="py-24 lg:py-32">
       <div className="container">
-        <div className="bg-gradient-to-r from-emerald-300/10 to-sky-400/10 dark:from-emerald-300 dark:to-sky-400 z-0 overflow-hidden text-zinc-900 dark:text-gray-900 py-8 px-10 rounded-3xl text-center md:text-left relative">
-          <div
-            className="absolute inset-0 opacity-5 -z-10"
-            style={{
-              backgroundImage: `url(${grainImage.src})`,
-            }}
-          ></div>
-          <div className="flex flex-col justify-center items-center md:flex-row items-center gap-8 md:gap-16">
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl">
-                Let&apos;s create something amazing together
-              </h2>
-              <p className="text-sm mt-2 md:text-base">
-                Ready to bring your next project to life? Let&apos;s connect and
-                discuss hot I can help you achieve your goals
-              </p>
-            </div>
-            <div>
-              <button className="bg-white dark:bg-gray-900 dark:text-white text-zinc-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 mt-8 w-max border-b-gray-900 ">
-                <Link href={"/contact"} className="font-semibold">Contact Me</Link>
-                <ArrowUpRightIcon className="size-4" />
-              </button>
+        <ScrollReveal>
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-cyan-500 p-px">
+            <div className="relative rounded-[23px] bg-gradient-to-br from-violet-600 via-purple-600 to-cyan-500 px-8 py-16 md:px-16 md:py-20 text-center overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full"
+                  style={{
+                    backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+                    backgroundSize: '40px 40px',
+                  }}
+                />
+              </div>
+
+              {/* Glow orbs */}
+              <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-white/10 rounded-full blur-[80px]" />
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-white/10 rounded-full blur-[80px]" />
+
+              <div className="relative z-10 max-w-2xl mx-auto">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-sm font-medium mb-6">
+                  <span className="size-2 bg-green-400 rounded-full animate-pulse" />
+                  Available for work
+                </div>
+                <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+                  Let&apos;s Build Something
+                  <br />
+                  Amazing Together
+                </h2>
+                <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg mx-auto">
+                  Ready to bring your next eCommerce project to life? I&apos;d love to hear about your vision and help make it a reality.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <Link
+                    href="/contact"
+                    className="group inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-violet-700 font-semibold text-sm hover:shadow-xl hover:shadow-white/20 transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    Get in Touch
+                    <svg
+                      className="size-4 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                  <a
+                    href="mailto:suryakiran0257@gmail.com"
+                    className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm text-white font-semibold text-sm hover:bg-white/20 transition-all duration-300 border border-white/20"
+                  >
+                    suryakiran0257@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
-    </div>
+    </section>
   );
 };
