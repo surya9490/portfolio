@@ -5,5 +5,14 @@ module.exports = {
   changefreq: 'monthly',
   priority: 0.7,
   sitemapSize: 5000,
-  exclude: ['/server-sitemap.xml'],
+  exclude: ['/api/*'],
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/'],
+      },
+    ],
+  },
 };

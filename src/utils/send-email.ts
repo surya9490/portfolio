@@ -1,4 +1,4 @@
-import { FormData } from "@/app/contact/page";
+import { FormData } from "@/app/contact/ContactClient";
 
 
 export function sendEmail(data: FormData) {
